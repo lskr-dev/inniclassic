@@ -1,5 +1,22 @@
 # InniClassic
 
+## Dev changes pending in master
+
+This fork's `dev` branch combines local changes for Y1 testing. `master` tracks [upstream InniClassic](https://github.com/FabianZettl/inniclassic). Each change has an independent branch based on `master`, so it can be reviewed and accepted separately.
+
+Last reviewed: **2026-10-01** · `master` baseline: `7d9ee95f1f75` (1.4.5).
+
+| Included change | Independent branch | Validation / remaining work |
+| --- | --- | --- |
+| **FM audio after screen timeout** — keeps FM playing with the physical display off; releases the playback wake lock when FM stops. | [codex/fix-fm-display-timeout](https://github.com/lskr-dev/inniclassic/tree/codex/fix-fm-display-timeout) | Automated lifecycle tests pass; screen-off radio playback confirmed on a physical Y1. |
+| **Optional FM station information** — independent Station Name and Radio Text switches under Radio Settings → Extended Information; both default Off. Clears stale metadata on retune/scan and stops polling when disabled. | [codex/explore-fm-rds](https://github.com/lskr-dev/inniclassic/tree/codex/explore-fm-rds) | Automated tests and emulator layout checks pass. Real Y1 RDS reception still needs testing; decoding currently supports basic Latin. [Screenshots and test steps](docs/fm-rds/README.md). |
+
+Combined `dev` validation: **17 tests passed**, signed APK/release build and lint passed. Local test release: **1.4.5-lskr-dev.1**.
+
+Keep this table limited to changes included in `dev` but missing from `master`. Add a row when integrating a new change; remove it once the change lands upstream and `master` is synced. Update the review date, baseline and validation when rebuilding. Keep each individual PR branch until its proposal is merged or closed.
+
+---
+
 <p align="center">
   <img src="https://img.shields.io/badge/Platform-Android-3DDC84?style=flat-square&logo=android&logoColor=white" alt="Platform">
   <img src="https://img.shields.io/badge/Device-Innioasis%20Y1%20only-blue?style=flat-square" alt="Device">
